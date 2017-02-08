@@ -29,6 +29,10 @@ module.exports = {
         //where does this need to happen?
         //once again leads to the REACT testing folder
         root: __dirname,
+        modulesDirectories: [
+            'node_modules',
+            './app/components'
+        ],
         alias: {
             //main parent component
            
