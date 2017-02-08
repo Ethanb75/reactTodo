@@ -1,0 +1,9 @@
+@import "base/variables";
+
+//foundation fix
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+//component styles
+
