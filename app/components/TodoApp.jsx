@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
+import TodoSearch from 'TodoSearch';
 //use createClass because it will keep state
 var TodoApp = React.createClass({
     getInitialState: function(){
@@ -38,10 +39,17 @@ var TodoApp = React.createClass({
                 ]
             });
     },
+    handleSearch: function(showCompleted, searchText){
+        this.setState({
+            showCompleted: showCompleted,
+            searchText: searchText.toLowerCase()
+        })
+    },
     render: function(){
         var {todos} = this.state;
         return (
             <div>
+                <TodoSearch onSearch={this.handleSearch}/>
                 <TodoList todos={todos} />
                 <AddTodo onAddTodo={this.handleNewTodo} />
             </div>
