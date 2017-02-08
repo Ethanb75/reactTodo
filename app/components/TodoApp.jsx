@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from 'TodoList';
-
+import AddTodo from 'AddTodo';
 //use createClass because it will keep state
 var TodoApp = React.createClass({
     getInitialState: function(){
@@ -25,11 +25,25 @@ var TodoApp = React.createClass({
             ]
         };
     },
+    handleNewTodo: function(newTodo){
+        var newId = this.state.todos.length + 1;
+        var oldTodos = this.state.todos;
+        this.setState({
+            todos:[
+                    ...oldTodos,
+                    {
+                        id:newId,
+                        text:newTodo
+                    }
+                ]
+            });
+    },
     render: function(){
         var {todos} = this.state;
         return (
             <div>
                 <TodoList todos={todos} />
+                <AddTodo onAddTodo={this.handleNewTodo} />
             </div>
         );
     }
