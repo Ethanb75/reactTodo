@@ -3,33 +3,18 @@ import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import TodoSearch from 'TodoSearch';
 import uuid from 'node-uuid';
+import TodoAPI from 'TodoAPI';
 //use createClass because it will keep state
 var TodoApp = React.createClass({
+    //when we first get the state we getTodos
     getInitialState: function(){
         return {
-            todos: [
-                {
-                    id: uuid(),
-                    text: 'Walk dog',
-                    completed: true
-                },
-                {
-                    id: uuid(),
-                    text: 'Count pennies',
-                    completed: false
-                },
-                {
-                    id: uuid(),
-                    text: 'Make Pizza',
-                    completed: true
-                },
-                {
-                    id: uuid(),
-                    text: 'Chase cats',
-                    completed: false
-                }
-            ]
+            todos: TodoAPI.getTodos()
         };
+    },
+    //whenever the components state is updated in any way set the Todos
+    componentDidUpdate: function(){
+        TodoAPI.setTodos(this.state.todos);
     },
     handleNewTodo: function(newTodo){
         var oldTodos = this.state.todos;
@@ -48,7 +33,7 @@ var TodoApp = React.createClass({
         this.setState({
             showCompleted: showCompleted,
             searchText: searchText.toLowerCase()
-        })
+        });
     },
     handleToggle: function(id){
         var toggledTodos = this.state.todos.map((el) => {
