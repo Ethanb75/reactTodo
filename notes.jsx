@@ -27,3 +27,22 @@
 *   var arr2 = [3, 4, 5];
 *   arr1.push(...arr2);
 */
+
+/* Spread Operator (ES6)
+//---------------------
+* useful for calling a function where the wanton properties are in an array
+* 
+* EX: function add(a,b) {
+*    return a + b;
+* }
+* var arr = [1,2];
+* add(...arr); 
+*
+* EX2: 
+* var group1 = [1,2,3,4];
+* var group2 = [5,6,7,8];
+* var final = [...group1,...group2] 
+*
+* returns final = [1,2,3,4,5,6,7,8]
+*/
+

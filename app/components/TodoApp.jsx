@@ -2,39 +2,44 @@ import React from 'react';
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import TodoSearch from 'TodoSearch';
+import uuid from 'node-uuid';
 //use createClass because it will keep state
 var TodoApp = React.createClass({
     getInitialState: function(){
         return {
             todos: [
                 {
-                    id: 1,
-                    text: 'Walk dog'
+                    id: uuid(),
+                    text: 'Walk dog',
+                    completed: true
                 },
                 {
-                    id: 2,
-                    text: 'Count pennies'
+                    id: uuid(),
+                    text: 'Count pennies',
+                    completed: false
                 },
                 {
-                    id: 3,
-                    text: 'Make Pizza'
+                    id: uuid(),
+                    text: 'Make Pizza',
+                    completed: true
                 },
                 {
-                    id: 4,
-                    text: 'Chase cats'
+                    id: uuid(),
+                    text: 'Chase cats',
+                    completed: false
                 }
             ]
         };
     },
     handleNewTodo: function(newTodo){
-        var newId = this.state.todos.length + 1;
         var oldTodos = this.state.todos;
         this.setState({
             todos:[
                     ...oldTodos,
                     {
-                        id:newId,
-                        text:newTodo
+                        id: uuid(),
+                        text:newTodo,
+                        completed: false
                     }
                 ]
             });
@@ -45,12 +50,21 @@ var TodoApp = React.createClass({
             searchText: searchText.toLowerCase()
         })
     },
+    handleToggle: function(id){
+        var toggledTodos = this.state.todos.map((el) => {
+            if(el.id === id){
+                el.completed = !el.completed;
+            }
+            return el;
+        });
+        this.setState({todos: toggledTodos})
+    },
     render: function(){
         var {todos} = this.state;
         return (
             <div>
                 <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={todos} />
+                <TodoList todos={todos} onToggle={this.handleToggle}/>
                 <AddTodo onAddTodo={this.handleNewTodo} />
             </div>
         );
