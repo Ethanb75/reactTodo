@@ -46,3 +46,18 @@
 * returns final = [1,2,3,4,5,6,7,8]
 */
 
+
+/* LOCAL STORAGE
+//--------------------
+* localStorage is a JS feature that allows you to store items with the 'setItem' method,
+* as well as get items with the 'getItem' method
+* the item takes a key as the prop and a value as the second prop
+* EX: > localStorage.setItem('key', 'value');
+* > localStorage.getItem('key')
+* <- "value"
+*
+* The data persists even when the browser is refereshed or closed
+* 
+* Remove items with 'localStorage.removeItem('key');'
+
+
