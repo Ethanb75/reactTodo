@@ -32,13 +32,14 @@ module.exports = {
         modulesDirectories: [
             'node_modules',
             './app/components',
-            './app/api'
+            './app/api',
         ],
         alias: {
             //main parent component
            
             //styles
-            applicationStyle: 'app/styles/app.scss'
+            applicationStyle: 'app/styles/app.scss',
+            actions: 'app/actions/actions.jsx'
         },
         // find files with no extension , js, and jsx 
         extensions: ['','.js','.jsx']

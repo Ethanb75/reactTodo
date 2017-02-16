@@ -61,3 +61,31 @@
 * Remove items with 'localStorage.removeItem('key');'
 
 
+/* INTRO TO REDUX 
+//-------------------------------
+* A library to help you maintain state
+* Right now our todolist has to pass a prop, and then pass it again so that each todo component can access the handlesearch
+* Example Redux:
+* 
+    var ReduxState = {
+        searchText: 'dingo',
+        showCompleted: false,
+        todos: [
+            {
+                id: 123,
+                text: 'Walk dog'
+            },
+            ...todos
+        ]
+}
+*
+* Redux containers are read only by default, to modify the list you must use 'Actions'
+* Example Action:
+var action = {
+    type: 'CHANGE_SEARCH_TEXT',
+    searchText: 'something else'
+}
+* actions just manipulate the state
+*/
+
+
