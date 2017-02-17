@@ -39,7 +39,8 @@ module.exports = {
            
             //styles
             applicationStyle: 'app/styles/app.scss',
-            actions: 'app/actions/actions.jsx'
+            actions: 'app/actions/actions.jsx',
+            reducers: 'app/reducers/reducers.jsx'
         },
         // find files with no extension , js, and jsx 
         extensions: ['','.js','.jsx']

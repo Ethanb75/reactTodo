@@ -22,6 +22,7 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
+    "deep-freeze-strict": "^1.1.1",
     "expect": "^1.14.0",
     "foundation-sites": "6.3.0",
     "jquery": "^2.2.1",
@@ -32,13 +33,13 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
+    "moment": "^2.17.1",
     "node-sass": "^4.3.0",
     "node-uuid": "^1.4.7",
     "react-addons-test-utils": "^0.14.7",
     "sass-loader": "^4.1.1",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.13",
-    "moment": "^2.17.1"
+    "webpack": "^1.12.13"
   }
 }
