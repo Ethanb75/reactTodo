@@ -10,20 +10,26 @@ export var addTodo = (text) => {
         text
     };
 };
+export var addTodos = (todos) => {
+    return {
+        type: 'ADD_TODOS',
+        todos
+    };
+};
 export var removeTodo = (id) => {
     return {
         type: 'REMOVE_TODO',
         id
-    }
+    };
 };
 export var toggleShowCompleted = () => {
     return{
         type: 'TOGGLE_SHOW_COMPLETED',
-    } 
+    } ;
 };
 export var toggleTodo = (id) => {
     return {
         type: 'TOGGLE_TODO',
         id
-    }
-}
+    };
+};

@@ -10,11 +10,19 @@ var TodoApp = require('TodoApp');
 
 var actions = require('actions');
 var store = require('configureStore').configure();
+var TodoAPI = require('TodoAPI');
 
+//event listener for store changes
+//whenever there's a change in the store state get's updated, new state is console logged, our API handles
+//updating the todoList locally (for now locally)
 store.subscribe(() => {
-	console.log('new State', store.getState());
+	var state = store.getState();
+	console.log('New State', state);
+	TodoAPI.setTodos(state.todos);
 });
 
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 $(document).foundation();
 
