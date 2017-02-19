@@ -15,7 +15,6 @@ store.subscribe(() => {
 	console.log('new State', store.getState());
 });
 
-store.dispatch(actions.addTodo('add me'));
 
 $(document).foundation();
 
