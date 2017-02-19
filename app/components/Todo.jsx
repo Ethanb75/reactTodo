@@ -1,12 +1,12 @@
 import React from 'react';
 import moment from 'moment';
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var Todo = React.createClass({
-    handleClick: function(){
-        this.props.onToggle(this.props.id);
-    },
+
+export var Todo = React.createClass({
     render: function(){
-        var {text,id,completed,time,completedAt} = this.props;
+        var {text,id,completed,time,completedAt, dispatch} = this.props;
         var todoClassName = completed ? 'todo todo-completed' : 'todo';
         var renderDate = () => {
             var message = "Created ";
@@ -20,7 +20,9 @@ var Todo = React.createClass({
             return message + moment.unix(timeStamp).format('MMM Do YYYY @ h:mm a');
         };
         return(
-            <div className={todoClassName} onClick={this.handleClick}>
+            <div className={todoClassName} onClick={() => {
+                    dispatch(actions.toggleTodo(id));
+                }}>
                  <div>
                     <input type="checkbox" checked={completed} />
                  </div>
@@ -32,4 +34,8 @@ var Todo = React.createClass({
         );
     }
 });
-module.exports = Todo;
+
+export default connect()(Todo);
+//connect (and then calling w/ todo) connects that component to the store
+//we already have dispatch available by using connect
+//it's available on this.props

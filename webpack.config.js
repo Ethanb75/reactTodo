@@ -56,7 +56,7 @@ module.exports = {
                 query: {
                     //what does babel do with these files?
                     //this tells the babel loader to run the files through react and es2015 before loading
-                    presets: ['react','es2015']
+                    presets: ['react','es2015','stage-0']
                 },
                 // below tells which files (.jsx) to apply compiling to
                 test: /\.jsx?$/,
