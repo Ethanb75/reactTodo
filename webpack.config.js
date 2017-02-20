@@ -36,7 +36,7 @@ module.exports = {
         ],
         alias: {
             //main parent component
-           
+           app: 'app',
             //styles
             applicationStyle: 'app/styles/app.scss',
             actions: 'app/actions/actions.jsx',

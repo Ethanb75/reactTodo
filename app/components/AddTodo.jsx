@@ -8,7 +8,7 @@ export var AddTodo = React.createClass({
         var todo = this.refs.todo.value;
         if (todo.length > 0){
             this.refs.todo.value = '';
-            dispatch(actions.addTodo(todo));
+            dispatch(actions.startAddTodo(todo));
         } else {
             //automatically select the input again so the user can try again
             this.refs.todo.focus();

@@ -12,6 +12,7 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
+
 //event listener for store changes
 //whenever there's a change in the store state get's updated, new state is console logged, our API handles
 //updating the todoList locally (for now locally)
