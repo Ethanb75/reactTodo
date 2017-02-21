@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import $ from 'jQuery';
-
-var {Todo} = require('Todo');
+import * as actions from 'actions';
+import{Todo} from 'Todo';
 
 describe("Individual Todo Tests", () => {
     it('should exist', () => {
@@ -16,6 +16,8 @@ describe("Individual Todo Tests", () => {
             text: 'test',
             completed: true
         };
+        var action = actions.startToggleTodo(todoData.id, !todoData.completed);
+        
         var spy = expect.createSpy();
         var todo = TestUtils.renderIntoDocument(<Todo {...todoData} dispatch={spy} />)
         var $el = $(ReactDOM.findDOMNode(todo));
@@ -23,9 +25,6 @@ describe("Individual Todo Tests", () => {
 
         TestUtils.Simulate.click($el[0]);
 
-        expect(spy).toHaveBeenCalledWith({
-            type: 'TOGGLE_TODO',
-            id: todoData.id
-        });    
+        expect(spy).toHaveBeenCalledWith(action);    
     });
 });

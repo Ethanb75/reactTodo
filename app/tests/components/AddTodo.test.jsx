@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import $ from 'jQuery';
+import * as actions from 'actions';
 
 var {AddTodo} = require('AddTodo')
 
@@ -12,10 +13,7 @@ describe('AddTodo tests', () => {
     });
     it('should dispatch ADD_TODO with valid data', () => {
         var todo = 'thar';
-        var action = {
-            type: 'ADD_TODO',
-            text: todo
-        }
+        var action = actions.startAddTodo(todo);
         var spy = expect.createSpy();
         var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodo));
