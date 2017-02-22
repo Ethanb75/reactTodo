@@ -3,11 +3,10 @@ import firebase from 'firebase';
 //adds a ton of request headers to authenticate
 try {
     var config = {
-        apiKey: "AIzaSyD6pOoVODGQEguo0wLYKwGBhxLZPz7Rv7s",
-        authDomain: "my-todo-app-7b796.firebaseapp.com",
-        databaseURL: "https://my-todo-app-7b796.firebaseio.com",
-        storageBucket: "my-todo-app-7b796.appspot.com",
-        messagingSenderId: "179918050243"
+        apiKey: process.env.API_KEY,
+        authDomain: process.env.AUTH_DOMAIN,
+        databaseURL: process.env.DATABASE_URL,
+        storageBucket: process.env.STORAGE_BUCKET,
     };
     firebase.initializeApp(config);
 } catch(e) {
