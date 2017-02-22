@@ -68,3 +68,20 @@ export var startToggleTodo = (id, completed) => {
         }); 
     }
 }
+export var startAddTodos = () => {
+    var parsedTodos = [];
+    return (dispatch, getState) => {
+        var todosRef = firebaseRef.child('todos');
+        return todosRef.once('value').then((snap) =>{
+            var todos = snap.val() || {};
+
+            Object.keys(todos).forEach((todoId) =>{
+                parsedTodos.push({
+                    id: todoId,
+                    ...todos[todoId]
+                });
+            });
+            dispatch(addTodos(parsedTodos));
+        });
+    };
+}
