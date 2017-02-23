@@ -1,4 +1,4 @@
-import React from 'React';
+var React = require('react');
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 //my modules
 import Login from 'Login';
