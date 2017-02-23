@@ -6,13 +6,14 @@ var {Provider} = require('react-redux');
 
 //configures routes for our single app
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-var TodoApp = require('TodoApp');
+// var TodoApp = require('TodoApp');
 
 var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
-
+import Login from 'Login';
+import TodoApp from 'TodoApp';
 //event listener for store changes
 //whenever there's a change in the store state get's updated, new state is console logged, our API handles
 //updating the todoList locally (for now locally)
@@ -36,7 +37,15 @@ ReactDOM.render(
 	// use the name attribute plus ="" to pass values into the render function
 	// the path route will be rendered if the route is '/' then 'about'
 		<Provider store={store}>
-			<TodoApp />
+			
+			<Router history={hashHistory}>
+				<Route path="/">
+					{/*<Route path="about" component={About}/>*/}
+					<Route path="todo" component={TodoApp}/>
+					<IndexRoute component={Login}/>
+				</Route>
+			</Router>
+			
 		</Provider>,
 		document.getElementById('app')
 );

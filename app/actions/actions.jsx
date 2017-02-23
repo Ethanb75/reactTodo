@@ -1,4 +1,4 @@
-import firebase, {firebaseRef} from 'app/firebase/';
+import firebase, {firebaseRef, githubProvider} from 'app/firebase/';
 import moment from 'moment';
 
 export var setSearchText = (searchText) => {
@@ -67,7 +67,7 @@ export var startToggleTodo = (id, completed) => {
             dispatch(updateTodo(id, updates));
         }); 
     }
-}
+};
 export var startAddTodos = () => {
     var parsedTodos = [];
     return (dispatch, getState) => {
@@ -84,4 +84,21 @@ export var startAddTodos = () => {
             dispatch(addTodos(parsedTodos));
         });
     };
-}
+};
+export var startLogin = () => {
+    return (dispatch, getState) => {
+        //firebase.auth returns a bunch of authentication related functions
+        return firebase.auth().signInWithPopup(githubProvider).then((result) =>{
+            console.log("gtg!", result);
+        }, (e) => {
+            console.log(e)
+        });
+    }
+};
+export var startLogout = () => {
+    return (dispatch, getState) => {
+        return firebase.auth().signOut().then(() => {
+            console.log('Yer Outta here');
+        })
+    };
+};

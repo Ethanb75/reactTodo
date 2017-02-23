@@ -13,5 +13,8 @@ try {
     console.log(e);
 }
 
+//easy way to create a new instance github authentication
+export var githubProvider = new firebase.auth.GithubAuthProvider();
+
 export var firebaseRef = firebase.database().ref();
 export default firebase;
