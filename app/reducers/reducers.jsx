@@ -41,6 +41,8 @@ export var todoReducer = (state = [], action) => {
                 ...state,
                 ...action.todos
             ];
+        case 'REMOVE_COMPLETED_TODOS': 
+            return [];
         default:
             return state;
     }

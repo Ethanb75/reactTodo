@@ -19,10 +19,9 @@ export var addTodos = (todos) => {
         todos
     };
 };
-export var removeTodo = (id) => {
+export var removeCompletedTodos = () => {
     return {
-        type: 'REMOVE_TODO',
-        id
+        type: 'REMOVE_COMPLETED_TODOS',
     };
 };
 export var toggleShowCompleted = () => {
@@ -92,7 +91,6 @@ export var startGitLogin = () => {
     return (dispatch, getState) => {
         //firebase.auth returns a bunch of authentication related functions
         return firebase.auth().signInWithPopup(githubProvider).then((result) =>{
-            console.log("gtg!", result.user.uid);
             dispatch(login(result.user.uid));
         }, (e) => {
             console.log(e)
@@ -103,7 +101,6 @@ export var startTwitterLogin = () => {
     return (dispatch, getState) => {
         //firebase.auth returns a bunch of authentication related functions
         return firebase.auth().signInWithPopup(twitterProvider).then((result) =>{
-            console.log("gtg!", result.user.uid);
             dispatch(login(result.user.uid));
         }, (e) => {
             console.log(e)
@@ -115,6 +112,7 @@ export var startLogout = () => {
         return firebase.auth().signOut().then(() => {
             console.log('Yer Outta here');
             dispatch(logout());
+            dispatch(removeCompletedTodos());
         })
     };
 };
