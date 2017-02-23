@@ -16,7 +16,7 @@ export var Login = React.createClass({
             <div>
                 <h1 className="page-title">Todo React Application</h1>
                 <div className="row">
-                    <div className="columns small-centered small-10 medium-6">
+                    <div className="columns small-centered small-10 medium-10">
                         <div className="callout callout-off">
                             <h3>Login</h3>
                             <p>
