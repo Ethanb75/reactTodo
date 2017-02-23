@@ -15,6 +15,7 @@ try {
 
 //easy way to create a new instance github authentication
 export var githubProvider = new firebase.auth.GithubAuthProvider();
+export var twitterProvider = new firebase.auth.TwitterAuthProvider();
 
 export var firebaseRef = firebase.database().ref();
 export default firebase;

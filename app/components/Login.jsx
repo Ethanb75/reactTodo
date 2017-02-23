@@ -3,9 +3,13 @@ import * as Redux from 'react-redux';
 import * as actions from 'actions';
 
 export var Login = React.createClass({
-    onLogin() {
+    onGitLogin() {
         var {dispatch} = this.props;
-        dispatch(actions.startLogin());
+        dispatch(actions.startGitLogin());
+    },
+    onTwitterLogin() {
+        var {dispatch} = this.props;
+        dispatch(actions.startTwitterLogin());
     },
     render(){
         return (
@@ -16,9 +20,13 @@ export var Login = React.createClass({
                         <div className="callout callout-off">
                             <h3>Login</h3>
                             <p>
-                                Login with GitHub below.
+                                Login securely with a social provider below.
                             </p>
-                            <button className="button" onClick={this.onLogin}>Login With GitHub</button>
+                            <button className="button" onClick={this.onGitLogin}>Login With GitHub</button>
+                            <button className="button" onClick={this.onTwitterLogin}>Login With Twitter</button>
+                            <p>
+                                This allows for secure login by allowing a 3rd party to handle user data.
+                            </p>
                         </div>
                     </div>
                 </div>
